@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootdemo.mapper.TaskMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springbootdemo.entity.Task" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tenant_id" property="tenantId" jdbcType="INTEGER" />
+    <result column="organization" property="organization" jdbcType="INTEGER" />
+    <result column="owner" property="owner" jdbcType="INTEGER" />
+    <result column="updater" property="updater" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="finishTime" property="finishtime" jdbcType="TIMESTAMP" />
+    <result column="contact_id" property="contactId" jdbcType="INTEGER" />
+    <result column="deal_id" property="dealId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="due_time" property="dueTime" jdbcType="TIMESTAMP" />
+    <result column="remind_time" property="remindTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="priority" property="priority" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="campaign_id" property="campaignId" jdbcType="INTEGER" />
+    <result column="campaign_emp_url" property="campaignEmpUrl" jdbcType="VARCHAR" />
+    <result column="contact_link_group_id" property="contactLinkGroupId" jdbcType="INTEGER" />
+    <result column="campaign_channel_id" property="campaignChannelId" jdbcType="INTEGER" />
+    <result column="real_contact_id" property="realContactId" jdbcType="INTEGER" />
+    <result column="contact_trace_id" property="contactTraceId" jdbcType="INTEGER" />
+    <result column="sr_id" property="srId" jdbcType="INTEGER" />
+    <result column="active_call_result_id" property="activeCallResultId" jdbcType="INTEGER" />
+    <result column="store_id" property="storeId" jdbcType="INTEGER" />
+    <result column="guide_id" property="guideId" jdbcType="INTEGER" />
+    <result column="task_record" property="taskRecord" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tenant_id, organization, owner, updater, position, create_time, update_time, 
+    startTime, finishTime, contact_id, deal_id, title, description, due_time, remind_time, 
+    end_time, type, status, priority, source, creator, campaign_id, campaign_emp_url, 
+    contact_link_group_id, campaign_channel_id, real_contact_id, contact_trace_id, sr_id, 
+    active_call_result_id, store_id, guide_id, task_record
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.springbootdemo.entity.Task" >
+    insert into task (id, tenant_id, organization, 
+      owner, updater, position, 
+      create_time, update_time, startTime, 
+      finishTime, contact_id, deal_id, 
+      title, description, due_time, 
+      remind_time, end_time, type, 
+      status, priority, source, 
+      creator, campaign_id, campaign_emp_url, 
+      contact_link_group_id, campaign_channel_id, 
+      real_contact_id, contact_trace_id, sr_id, 
+      active_call_result_id, store_id, guide_id, 
+      task_record)
+    values (#{id,jdbcType=INTEGER}, #{tenantId,jdbcType=INTEGER}, #{organization,jdbcType=INTEGER}, 
+      #{owner,jdbcType=INTEGER}, #{updater,jdbcType=INTEGER}, #{position,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{finishtime,jdbcType=TIMESTAMP}, #{contactId,jdbcType=INTEGER}, #{dealId,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{dueTime,jdbcType=TIMESTAMP}, 
+      #{remindTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=INTEGER}, #{campaignId,jdbcType=INTEGER}, #{campaignEmpUrl,jdbcType=VARCHAR}, 
+      #{contactLinkGroupId,jdbcType=INTEGER}, #{campaignChannelId,jdbcType=INTEGER}, 
+      #{realContactId,jdbcType=INTEGER}, #{contactTraceId,jdbcType=INTEGER}, #{srId,jdbcType=INTEGER}, 
+      #{activeCallResultId,jdbcType=INTEGER}, #{storeId,jdbcType=INTEGER}, #{guideId,jdbcType=INTEGER}, 
+      #{taskRecord,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springbootdemo.entity.Task" >
+    insert into task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tenantId != null" >
+        tenant_id,
+      </if>
+      <if test="organization != null" >
+        organization,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+      <if test="updater != null" >
+        updater,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="finishtime != null" >
+        finishTime,
+      </if>
+      <if test="contactId != null" >
+        contact_id,
+      </if>
+      <if test="dealId != null" >
+        deal_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="dueTime != null" >
+        due_time,
+      </if>
+      <if test="remindTime != null" >
+        remind_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="campaignId != null" >
+        campaign_id,
+      </if>
+      <if test="campaignEmpUrl != null" >
+        campaign_emp_url,
+      </if>
+      <if test="contactLinkGroupId != null" >
+        contact_link_group_id,
+      </if>
+      <if test="campaignChannelId != null" >
+        campaign_channel_id,
+      </if>
+      <if test="realContactId != null" >
+        real_contact_id,
+      </if>
+      <if test="contactTraceId != null" >
+        contact_trace_id,
+      </if>
+      <if test="srId != null" >
+        sr_id,
+      </if>
+      <if test="activeCallResultId != null" >
+        active_call_result_id,
+      </if>
+      <if test="storeId != null" >
+        store_id,
+      </if>
+      <if test="guideId != null" >
+        guide_id,
+      </if>
+      <if test="taskRecord != null" >
+        task_record,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null" >
+        #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null" >
+        #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=INTEGER},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null" >
+        #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactId != null" >
+        #{contactId,jdbcType=INTEGER},
+      </if>
+      <if test="dealId != null" >
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="dueTime != null" >
+        #{dueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remindTime != null" >
+        #{remindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="campaignId != null" >
+        #{campaignId,jdbcType=INTEGER},
+      </if>
+      <if test="campaignEmpUrl != null" >
+        #{campaignEmpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="contactLinkGroupId != null" >
+        #{contactLinkGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="campaignChannelId != null" >
+        #{campaignChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="realContactId != null" >
+        #{realContactId,jdbcType=INTEGER},
+      </if>
+      <if test="contactTraceId != null" >
+        #{contactTraceId,jdbcType=INTEGER},
+      </if>
+      <if test="srId != null" >
+        #{srId,jdbcType=INTEGER},
+      </if>
+      <if test="activeCallResultId != null" >
+        #{activeCallResultId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null" >
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="guideId != null" >
+        #{guideId,jdbcType=INTEGER},
+      </if>
+      <if test="taskRecord != null" >
+        #{taskRecord,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootdemo.entity.Task" >
+    update task
+    <set >
+      <if test="tenantId != null" >
+        tenant_id = #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null" >
+        organization = #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=INTEGER},
+      </if>
+      <if test="updater != null" >
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null" >
+        finishTime = #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactId != null" >
+        contact_id = #{contactId,jdbcType=INTEGER},
+      </if>
+      <if test="dealId != null" >
+        deal_id = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="dueTime != null" >
+        due_time = #{dueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remindTime != null" >
+        remind_time = #{remindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="campaignId != null" >
+        campaign_id = #{campaignId,jdbcType=INTEGER},
+      </if>
+      <if test="campaignEmpUrl != null" >
+        campaign_emp_url = #{campaignEmpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="contactLinkGroupId != null" >
+        contact_link_group_id = #{contactLinkGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="campaignChannelId != null" >
+        campaign_channel_id = #{campaignChannelId,jdbcType=INTEGER},
+      </if>
+      <if test="realContactId != null" >
+        real_contact_id = #{realContactId,jdbcType=INTEGER},
+      </if>
+      <if test="contactTraceId != null" >
+        contact_trace_id = #{contactTraceId,jdbcType=INTEGER},
+      </if>
+      <if test="srId != null" >
+        sr_id = #{srId,jdbcType=INTEGER},
+      </if>
+      <if test="activeCallResultId != null" >
+        active_call_result_id = #{activeCallResultId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null" >
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="guideId != null" >
+        guide_id = #{guideId,jdbcType=INTEGER},
+      </if>
+      <if test="taskRecord != null" >
+        task_record = #{taskRecord,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springbootdemo.entity.Task" >
+    update task
+    set tenant_id = #{tenantId,jdbcType=INTEGER},
+      organization = #{organization,jdbcType=INTEGER},
+      owner = #{owner,jdbcType=INTEGER},
+      updater = #{updater,jdbcType=INTEGER},
+      position = #{position,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      finishTime = #{finishtime,jdbcType=TIMESTAMP},
+      contact_id = #{contactId,jdbcType=INTEGER},
+      deal_id = #{dealId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      due_time = #{dueTime,jdbcType=TIMESTAMP},
+      remind_time = #{remindTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=INTEGER},
+      campaign_id = #{campaignId,jdbcType=INTEGER},
+      campaign_emp_url = #{campaignEmpUrl,jdbcType=VARCHAR},
+      contact_link_group_id = #{contactLinkGroupId,jdbcType=INTEGER},
+      campaign_channel_id = #{campaignChannelId,jdbcType=INTEGER},
+      real_contact_id = #{realContactId,jdbcType=INTEGER},
+      contact_trace_id = #{contactTraceId,jdbcType=INTEGER},
+      sr_id = #{srId,jdbcType=INTEGER},
+      active_call_result_id = #{activeCallResultId,jdbcType=INTEGER},
+      store_id = #{storeId,jdbcType=INTEGER},
+      guide_id = #{guideId,jdbcType=INTEGER},
+      task_record = #{taskRecord,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

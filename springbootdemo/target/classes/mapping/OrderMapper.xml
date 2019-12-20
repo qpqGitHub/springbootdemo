@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootdemo.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springbootdemo.entity.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tenant_id" property="tenantId" jdbcType="INTEGER" />
+    <result column="organization" property="organization" jdbcType="INTEGER" />
+    <result column="owner" property="owner" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="updater" property="updater" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="finishTime" property="finishtime" jdbcType="TIMESTAMP" />
+    <result column="contact_id" property="contactId" jdbcType="INTEGER" />
+    <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="fact_consume_money" property="factConsumeMoney" jdbcType="VARCHAR" />
+    <result column="integral_deduction_money" property="integralDeductionMoney" jdbcType="VARCHAR" />
+    <result column="integral_consume_number" property="integralConsumeNumber" jdbcType="VARCHAR" />
+    <result column="order_date" property="orderDate" jdbcType="DATE" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="order_person" property="orderPerson" jdbcType="VARCHAR" />
+    <result column="person_identity" property="personIdentity" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="consume_type" property="consumeType" jdbcType="VARCHAR" />
+    <result column="order_one_price" property="orderOnePrice" jdbcType="VARCHAR" />
+    <result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
+    <result column="order_discount" property="orderDiscount" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="VARCHAR" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="total_amount" property="totalAmount" jdbcType="VARCHAR" />
+    <result column="payable_amount" property="payableAmount" jdbcType="VARCHAR" />
+    <result column="points_paid" property="pointsPaid" jdbcType="VARCHAR" />
+    <result column="points_reward" property="pointsReward" jdbcType="VARCHAR" />
+    <result column="growth_points_reward" property="growthPointsReward" jdbcType="VARCHAR" />
+    <result column="pay_channel" property="payChannel" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="cashier" property="cashier" jdbcType="INTEGER" />
+    <result column="real_contact_id" property="realContactId" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="order_channel" property="orderChannel" jdbcType="VARCHAR" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+    <result column="is_point_used" property="isPointUsed" jdbcType="BIT" />
+    <result column="tb_member_name" property="tbMemberName" jdbcType="VARCHAR" />
+    <result column="tb_zfb_account" property="tbZfbAccount" jdbcType="VARCHAR" />
+    <result column="payable_shipping_price" property="payableShippingPrice" jdbcType="VARCHAR" />
+    <result column="contact_message" property="contactMessage" jdbcType="VARCHAR" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_address" property="receiverAddress" jdbcType="VARCHAR" />
+    <result column="ship_method" property="shipMethod" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="tb_goods_name" property="tbGoodsName" jdbcType="VARCHAR" />
+    <result column="tb_goods_type" property="tbGoodsType" jdbcType="VARCHAR" />
+    <result column="express_number" property="expressNumber" jdbcType="VARCHAR" />
+    <result column="express_company" property="expressCompany" jdbcType="VARCHAR" />
+    <result column="tb_shop_id" property="tbShopId" jdbcType="VARCHAR" />
+    <result column="tb_shop_name" property="tbShopName" jdbcType="VARCHAR" />
+    <result column="tb_confirm_receive_time" property="tbConfirmReceiveTime" jdbcType="TIMESTAMP" />
+    <result column="tb_to_merchant_money" property="tbToMerchantMoney" jdbcType="VARCHAR" />
+    <result column="tb_points_paid" property="tbPointsPaid" jdbcType="VARCHAR" />
+    <result column="tb_order_status" property="tbOrderStatus" jdbcType="VARCHAR" />
+    <result column="store_id" property="storeId" jdbcType="INTEGER" />
+    <result column="ls_plus_order_num" property="lsPlusOrderNum" jdbcType="VARCHAR" />
+    <result column="jst_order_num" property="jstOrderNum" jdbcType="VARCHAR" />
+    <result column="trade_biz_type" property="tradeBizType" jdbcType="VARCHAR" />
+    <result column="guide_id" property="guideId" jdbcType="INTEGER" />
+    <result column="takeout_platform" property="takeoutPlatform" jdbcType="VARCHAR" />
+    <result column="tb_buyer_nick" property="tbBuyerNick" jdbcType="VARCHAR" />
+    <result column="up_faccount_no" property="upFaccountNo" jdbcType="VARCHAR" />
+    <result column="jd_pin" property="jdPin" jdbcType="VARCHAR" />
+    <result column="tb_receiver_mobile" property="tbReceiverMobile" jdbcType="VARCHAR" />
+    <result column="jd_telephone" property="jdTelephone" jdbcType="VARCHAR" />
+    <result column="bu_id" property="buId" jdbcType="VARCHAR" />
+    <result column="outer_trade_no" property="outerTradeNo" jdbcType="VARCHAR" />
+    <result column="has_post_fee" property="hasPostFee" jdbcType="BIT" />
+    <result column="receiver_zip" property="receiverZip" jdbcType="VARCHAR" />
+    <result column="receiver_state" property="receiverState" jdbcType="VARCHAR" />
+    <result column="receiver_city" property="receiverCity" jdbcType="VARCHAR" />
+    <result column="receiver_district" property="receiverDistrict" jdbcType="VARCHAR" />
+    <result column="order_start_time" property="orderStartTime" jdbcType="DATE" />
+    <result column="order_end_time" property="orderEndTime" jdbcType="DATE" />
+    <result column="order_state_remark" property="orderStateRemark" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+    <result column="county_id" property="countyId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tenant_id, organization, owner, creator, updater, position, create_time, update_time, 
+    startTime, finishTime, contact_id, order_num, product_name, fact_consume_money, integral_deduction_money, 
+    integral_consume_number, order_date, description, order_person, person_identity, 
+    phone, consume_type, order_one_price, order_number, order_discount, order_status, 
+    product_id, total_amount, payable_amount, points_paid, points_reward, growth_points_reward, 
+    pay_channel, pay_time, cashier, real_contact_id, member_id, order_channel, brand_id, 
+    is_point_used, tb_member_name, tb_zfb_account, payable_shipping_price, contact_message, 
+    receiver_name, receiver_address, ship_method, telephone, tb_goods_name, tb_goods_type, 
+    express_number, express_company, tb_shop_id, tb_shop_name, tb_confirm_receive_time, 
+    tb_to_merchant_money, tb_points_paid, tb_order_status, store_id, ls_plus_order_num, 
+    jst_order_num, trade_biz_type, guide_id, takeout_platform, tb_buyer_nick, up_faccount_no, 
+    jd_pin, tb_receiver_mobile, jd_telephone, bu_id, outer_trade_no, has_post_fee, receiver_zip, 
+    receiver_state, receiver_city, receiver_district, order_start_time, order_end_time, 
+    order_state_remark, province_id, city_id, county_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.springbootdemo.entity.Order" >
+    insert into order (id, tenant_id, organization, 
+      owner, creator, updater, 
+      position, create_time, update_time, 
+      startTime, finishTime, contact_id, 
+      order_num, product_name, fact_consume_money, 
+      integral_deduction_money, integral_consume_number, 
+      order_date, description, order_person, 
+      person_identity, phone, consume_type, 
+      order_one_price, order_number, order_discount, 
+      order_status, product_id, total_amount, 
+      payable_amount, points_paid, points_reward, 
+      growth_points_reward, pay_channel, pay_time, 
+      cashier, real_contact_id, member_id, 
+      order_channel, brand_id, is_point_used, 
+      tb_member_name, tb_zfb_account, payable_shipping_price, 
+      contact_message, receiver_name, receiver_address, 
+      ship_method, telephone, tb_goods_name, 
+      tb_goods_type, express_number, express_company, 
+      tb_shop_id, tb_shop_name, tb_confirm_receive_time, 
+      tb_to_merchant_money, tb_points_paid, tb_order_status, 
+      store_id, ls_plus_order_num, jst_order_num, 
+      trade_biz_type, guide_id, takeout_platform, 
+      tb_buyer_nick, up_faccount_no, jd_pin, 
+      tb_receiver_mobile, jd_telephone, bu_id, 
+      outer_trade_no, has_post_fee, receiver_zip, 
+      receiver_state, receiver_city, receiver_district, 
+      order_start_time, order_end_time, order_state_remark, 
+      province_id, city_id, county_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{tenantId,jdbcType=INTEGER}, #{organization,jdbcType=INTEGER}, 
+      #{owner,jdbcType=INTEGER}, #{creator,jdbcType=INTEGER}, #{updater,jdbcType=INTEGER}, 
+      #{position,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{starttime,jdbcType=TIMESTAMP}, #{finishtime,jdbcType=TIMESTAMP}, #{contactId,jdbcType=INTEGER}, 
+      #{orderNum,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{factConsumeMoney,jdbcType=VARCHAR}, 
+      #{integralDeductionMoney,jdbcType=VARCHAR}, #{integralConsumeNumber,jdbcType=VARCHAR}, 
+      #{orderDate,jdbcType=DATE}, #{description,jdbcType=VARCHAR}, #{orderPerson,jdbcType=VARCHAR}, 
+      #{personIdentity,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{consumeType,jdbcType=VARCHAR}, 
+      #{orderOnePrice,jdbcType=VARCHAR}, #{orderNumber,jdbcType=VARCHAR}, #{orderDiscount,jdbcType=VARCHAR}, 
+      #{orderStatus,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, #{totalAmount,jdbcType=VARCHAR}, 
+      #{payableAmount,jdbcType=VARCHAR}, #{pointsPaid,jdbcType=VARCHAR}, #{pointsReward,jdbcType=VARCHAR}, 
+      #{growthPointsReward,jdbcType=VARCHAR}, #{payChannel,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{cashier,jdbcType=INTEGER}, #{realContactId,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER}, 
+      #{orderChannel,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, #{isPointUsed,jdbcType=BIT}, 
+      #{tbMemberName,jdbcType=VARCHAR}, #{tbZfbAccount,jdbcType=VARCHAR}, #{payableShippingPrice,jdbcType=VARCHAR}, 
+      #{contactMessage,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, #{receiverAddress,jdbcType=VARCHAR}, 
+      #{shipMethod,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{tbGoodsName,jdbcType=VARCHAR}, 
+      #{tbGoodsType,jdbcType=VARCHAR}, #{expressNumber,jdbcType=VARCHAR}, #{expressCompany,jdbcType=VARCHAR}, 
+      #{tbShopId,jdbcType=VARCHAR}, #{tbShopName,jdbcType=VARCHAR}, #{tbConfirmReceiveTime,jdbcType=TIMESTAMP}, 
+      #{tbToMerchantMoney,jdbcType=VARCHAR}, #{tbPointsPaid,jdbcType=VARCHAR}, #{tbOrderStatus,jdbcType=VARCHAR}, 
+      #{storeId,jdbcType=INTEGER}, #{lsPlusOrderNum,jdbcType=VARCHAR}, #{jstOrderNum,jdbcType=VARCHAR}, 
+      #{tradeBizType,jdbcType=VARCHAR}, #{guideId,jdbcType=INTEGER}, #{takeoutPlatform,jdbcType=VARCHAR}, 
+      #{tbBuyerNick,jdbcType=VARCHAR}, #{upFaccountNo,jdbcType=VARCHAR}, #{jdPin,jdbcType=VARCHAR}, 
+      #{tbReceiverMobile,jdbcType=VARCHAR}, #{jdTelephone,jdbcType=VARCHAR}, #{buId,jdbcType=VARCHAR}, 
+      #{outerTradeNo,jdbcType=VARCHAR}, #{hasPostFee,jdbcType=BIT}, #{receiverZip,jdbcType=VARCHAR}, 
+      #{receiverState,jdbcType=VARCHAR}, #{receiverCity,jdbcType=VARCHAR}, #{receiverDistrict,jdbcType=VARCHAR}, 
+      #{orderStartTime,jdbcType=DATE}, #{orderEndTime,jdbcType=DATE}, #{orderStateRemark,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, #{countyId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springbootdemo.entity.Order" >
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tenantId != null" >
+        tenant_id,
+      </if>
+      <if test="organization != null" >
+        organization,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="updater != null" >
+        updater,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="finishtime != null" >
+        finishTime,
+      </if>
+      <if test="contactId != null" >
+        contact_id,
+      </if>
+      <if test="orderNum != null" >
+        order_num,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="factConsumeMoney != null" >
+        fact_consume_money,
+      </if>
+      <if test="integralDeductionMoney != null" >
+        integral_deduction_money,
+      </if>
+      <if test="integralConsumeNumber != null" >
+        integral_consume_number,
+      </if>
+      <if test="orderDate != null" >
+        order_date,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="orderPerson != null" >
+        order_person,
+      </if>
+      <if test="personIdentity != null" >
+        person_identity,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="consumeType != null" >
+        consume_type,
+      </if>
+      <if test="orderOnePrice != null" >
+        order_one_price,
+      </if>
+      <if test="orderNumber != null" >
+        order_number,
+      </if>
+      <if test="orderDiscount != null" >
+        order_discount,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="totalAmount != null" >
+        total_amount,
+      </if>
+      <if test="payableAmount != null" >
+        payable_amount,
+      </if>
+      <if test="pointsPaid != null" >
+        points_paid,
+      </if>
+      <if test="pointsReward != null" >
+        points_reward,
+      </if>
+      <if test="growthPointsReward != null" >
+        growth_points_reward,
+      </if>
+      <if test="payChannel != null" >
+        pay_channel,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="cashier != null" >
+        cashier,
+      </if>
+      <if test="realContactId != null" >
+        real_contact_id,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="orderChannel != null" >
+        order_channel,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+      <if test="isPointUsed != null" >
+        is_point_used,
+      </if>
+      <if test="tbMemberName != null" >
+        tb_member_name,
+      </if>
+      <if test="tbZfbAccount != null" >
+        tb_zfb_account,
+      </if>
+      <if test="payableShippingPrice != null" >
+        payable_shipping_price,
+      </if>
+      <if test="contactMessage != null" >
+        contact_message,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverAddress != null" >
+        receiver_address,
+      </if>
+      <if test="shipMethod != null" >
+        ship_method,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="tbGoodsName != null" >
+        tb_goods_name,
+      </if>
+      <if test="tbGoodsType != null" >
+        tb_goods_type,
+      </if>
+      <if test="expressNumber != null" >
+        express_number,
+      </if>
+      <if test="expressCompany != null" >
+        express_company,
+      </if>
+      <if test="tbShopId != null" >
+        tb_shop_id,
+      </if>
+      <if test="tbShopName != null" >
+        tb_shop_name,
+      </if>
+      <if test="tbConfirmReceiveTime != null" >
+        tb_confirm_receive_time,
+      </if>
+      <if test="tbToMerchantMoney != null" >
+        tb_to_merchant_money,
+      </if>
+      <if test="tbPointsPaid != null" >
+        tb_points_paid,
+      </if>
+      <if test="tbOrderStatus != null" >
+        tb_order_status,
+      </if>
+      <if test="storeId != null" >
+        store_id,
+      </if>
+      <if test="lsPlusOrderNum != null" >
+        ls_plus_order_num,
+      </if>
+      <if test="jstOrderNum != null" >
+        jst_order_num,
+      </if>
+      <if test="tradeBizType != null" >
+        trade_biz_type,
+      </if>
+      <if test="guideId != null" >
+        guide_id,
+      </if>
+      <if test="takeoutPlatform != null" >
+        takeout_platform,
+      </if>
+      <if test="tbBuyerNick != null" >
+        tb_buyer_nick,
+      </if>
+      <if test="upFaccountNo != null" >
+        up_faccount_no,
+      </if>
+      <if test="jdPin != null" >
+        jd_pin,
+      </if>
+      <if test="tbReceiverMobile != null" >
+        tb_receiver_mobile,
+      </if>
+      <if test="jdTelephone != null" >
+        jd_telephone,
+      </if>
+      <if test="buId != null" >
+        bu_id,
+      </if>
+      <if test="outerTradeNo != null" >
+        outer_trade_no,
+      </if>
+      <if test="hasPostFee != null" >
+        has_post_fee,
+      </if>
+      <if test="receiverZip != null" >
+        receiver_zip,
+      </if>
+      <if test="receiverState != null" >
+        receiver_state,
+      </if>
+      <if test="receiverCity != null" >
+        receiver_city,
+      </if>
+      <if test="receiverDistrict != null" >
+        receiver_district,
+      </if>
+      <if test="orderStartTime != null" >
+        order_start_time,
+      </if>
+      <if test="orderEndTime != null" >
+        order_end_time,
+      </if>
+      <if test="orderStateRemark != null" >
+        order_state_remark,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="countyId != null" >
+        county_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null" >
+        #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null" >
+        #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null" >
+        #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactId != null" >
+        #{contactId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="factConsumeMoney != null" >
+        #{factConsumeMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="integralDeductionMoney != null" >
+        #{integralDeductionMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="integralConsumeNumber != null" >
+        #{integralConsumeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDate != null" >
+        #{orderDate,jdbcType=DATE},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPerson != null" >
+        #{orderPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="personIdentity != null" >
+        #{personIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeType != null" >
+        #{consumeType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderOnePrice != null" >
+        #{orderOnePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null" >
+        #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDiscount != null" >
+        #{orderDiscount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="payableAmount != null" >
+        #{payableAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsPaid != null" >
+        #{pointsPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsReward != null" >
+        #{pointsReward,jdbcType=VARCHAR},
+      </if>
+      <if test="growthPointsReward != null" >
+        #{growthPointsReward,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null" >
+        #{payChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashier != null" >
+        #{cashier,jdbcType=INTEGER},
+      </if>
+      <if test="realContactId != null" >
+        #{realContactId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="orderChannel != null" >
+        #{orderChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="isPointUsed != null" >
+        #{isPointUsed,jdbcType=BIT},
+      </if>
+      <if test="tbMemberName != null" >
+        #{tbMemberName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbZfbAccount != null" >
+        #{tbZfbAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payableShippingPrice != null" >
+        #{payableShippingPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMessage != null" >
+        #{contactMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null" >
+        #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shipMethod != null" >
+        #{shipMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="tbGoodsName != null" >
+        #{tbGoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbGoodsType != null" >
+        #{tbGoodsType,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNumber != null" >
+        #{expressNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="expressCompany != null" >
+        #{expressCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="tbShopId != null" >
+        #{tbShopId,jdbcType=VARCHAR},
+      </if>
+      <if test="tbShopName != null" >
+        #{tbShopName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbConfirmReceiveTime != null" >
+        #{tbConfirmReceiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbToMerchantMoney != null" >
+        #{tbToMerchantMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="tbPointsPaid != null" >
+        #{tbPointsPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="tbOrderStatus != null" >
+        #{tbOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null" >
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="lsPlusOrderNum != null" >
+        #{lsPlusOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="jstOrderNum != null" >
+        #{jstOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeBizType != null" >
+        #{tradeBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="guideId != null" >
+        #{guideId,jdbcType=INTEGER},
+      </if>
+      <if test="takeoutPlatform != null" >
+        #{takeoutPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="tbBuyerNick != null" >
+        #{tbBuyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="upFaccountNo != null" >
+        #{upFaccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jdPin != null" >
+        #{jdPin,jdbcType=VARCHAR},
+      </if>
+      <if test="tbReceiverMobile != null" >
+        #{tbReceiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="jdTelephone != null" >
+        #{jdTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buId != null" >
+        #{buId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTradeNo != null" >
+        #{outerTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPostFee != null" >
+        #{hasPostFee,jdbcType=BIT},
+      </if>
+      <if test="receiverZip != null" >
+        #{receiverZip,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverState != null" >
+        #{receiverState,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCity != null" >
+        #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDistrict != null" >
+        #{receiverDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStartTime != null" >
+        #{orderStartTime,jdbcType=DATE},
+      </if>
+      <if test="orderEndTime != null" >
+        #{orderEndTime,jdbcType=DATE},
+      </if>
+      <if test="orderStateRemark != null" >
+        #{orderStateRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        #{countyId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootdemo.entity.Order" >
+    update order
+    <set >
+      <if test="tenantId != null" >
+        tenant_id = #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null" >
+        organization = #{organization,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="updater != null" >
+        updater = #{updater,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishtime != null" >
+        finishTime = #{finishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contactId != null" >
+        contact_id = #{contactId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNum != null" >
+        order_num = #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="factConsumeMoney != null" >
+        fact_consume_money = #{factConsumeMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="integralDeductionMoney != null" >
+        integral_deduction_money = #{integralDeductionMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="integralConsumeNumber != null" >
+        integral_consume_number = #{integralConsumeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDate != null" >
+        order_date = #{orderDate,jdbcType=DATE},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPerson != null" >
+        order_person = #{orderPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="personIdentity != null" >
+        person_identity = #{personIdentity,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeType != null" >
+        consume_type = #{consumeType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderOnePrice != null" >
+        order_one_price = #{orderOnePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNumber != null" >
+        order_number = #{orderNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDiscount != null" >
+        order_discount = #{orderDiscount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null" >
+        total_amount = #{totalAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="payableAmount != null" >
+        payable_amount = #{payableAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsPaid != null" >
+        points_paid = #{pointsPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="pointsReward != null" >
+        points_reward = #{pointsReward,jdbcType=VARCHAR},
+      </if>
+      <if test="growthPointsReward != null" >
+        growth_points_reward = #{growthPointsReward,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null" >
+        pay_channel = #{payChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cashier != null" >
+        cashier = #{cashier,jdbcType=INTEGER},
+      </if>
+      <if test="realContactId != null" >
+        real_contact_id = #{realContactId,jdbcType=INTEGER},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="orderChannel != null" >
+        order_channel = #{orderChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="isPointUsed != null" >
+        is_point_used = #{isPointUsed,jdbcType=BIT},
+      </if>
+      <if test="tbMemberName != null" >
+        tb_member_name = #{tbMemberName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbZfbAccount != null" >
+        tb_zfb_account = #{tbZfbAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payableShippingPrice != null" >
+        payable_shipping_price = #{payableShippingPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMessage != null" >
+        contact_message = #{contactMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null" >
+        receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shipMethod != null" >
+        ship_method = #{shipMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="tbGoodsName != null" >
+        tb_goods_name = #{tbGoodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbGoodsType != null" >
+        tb_goods_type = #{tbGoodsType,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNumber != null" >
+        express_number = #{expressNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="expressCompany != null" >
+        express_company = #{expressCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="tbShopId != null" >
+        tb_shop_id = #{tbShopId,jdbcType=VARCHAR},
+      </if>
+      <if test="tbShopName != null" >
+        tb_shop_name = #{tbShopName,jdbcType=VARCHAR},
+      </if>
+      <if test="tbConfirmReceiveTime != null" >
+        tb_confirm_receive_time = #{tbConfirmReceiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tbToMerchantMoney != null" >
+        tb_to_merchant_money = #{tbToMerchantMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="tbPointsPaid != null" >
+        tb_points_paid = #{tbPointsPaid,jdbcType=VARCHAR},
+      </if>
+      <if test="tbOrderStatus != null" >
+        tb_order_status = #{tbOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null" >
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="lsPlusOrderNum != null" >
+        ls_plus_order_num = #{lsPlusOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="jstOrderNum != null" >
+        jst_order_num = #{jstOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeBizType != null" >
+        trade_biz_type = #{tradeBizType,jdbcType=VARCHAR},
+      </if>
+      <if test="guideId != null" >
+        guide_id = #{guideId,jdbcType=INTEGER},
+      </if>
+      <if test="takeoutPlatform != null" >
+        takeout_platform = #{takeoutPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="tbBuyerNick != null" >
+        tb_buyer_nick = #{tbBuyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="upFaccountNo != null" >
+        up_faccount_no = #{upFaccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jdPin != null" >
+        jd_pin = #{jdPin,jdbcType=VARCHAR},
+      </if>
+      <if test="tbReceiverMobile != null" >
+        tb_receiver_mobile = #{tbReceiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="jdTelephone != null" >
+        jd_telephone = #{jdTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buId != null" >
+        bu_id = #{buId,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTradeNo != null" >
+        outer_trade_no = #{outerTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPostFee != null" >
+        has_post_fee = #{hasPostFee,jdbcType=BIT},
+      </if>
+      <if test="receiverZip != null" >
+        receiver_zip = #{receiverZip,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverState != null" >
+        receiver_state = #{receiverState,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCity != null" >
+        receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDistrict != null" >
+        receiver_district = #{receiverDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStartTime != null" >
+        order_start_time = #{orderStartTime,jdbcType=DATE},
+      </if>
+      <if test="orderEndTime != null" >
+        order_end_time = #{orderEndTime,jdbcType=DATE},
+      </if>
+      <if test="orderStateRemark != null" >
+        order_state_remark = #{orderStateRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        county_id = #{countyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springbootdemo.entity.Order" >
+    update order
+    set tenant_id = #{tenantId,jdbcType=INTEGER},
+      organization = #{organization,jdbcType=INTEGER},
+      owner = #{owner,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      updater = #{updater,jdbcType=INTEGER},
+      position = #{position,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      finishTime = #{finishtime,jdbcType=TIMESTAMP},
+      contact_id = #{contactId,jdbcType=INTEGER},
+      order_num = #{orderNum,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      fact_consume_money = #{factConsumeMoney,jdbcType=VARCHAR},
+      integral_deduction_money = #{integralDeductionMoney,jdbcType=VARCHAR},
+      integral_consume_number = #{integralConsumeNumber,jdbcType=VARCHAR},
+      order_date = #{orderDate,jdbcType=DATE},
+      description = #{description,jdbcType=VARCHAR},
+      order_person = #{orderPerson,jdbcType=VARCHAR},
+      person_identity = #{personIdentity,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      consume_type = #{consumeType,jdbcType=VARCHAR},
+      order_one_price = #{orderOnePrice,jdbcType=VARCHAR},
+      order_number = #{orderNumber,jdbcType=VARCHAR},
+      order_discount = #{orderDiscount,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=INTEGER},
+      total_amount = #{totalAmount,jdbcType=VARCHAR},
+      payable_amount = #{payableAmount,jdbcType=VARCHAR},
+      points_paid = #{pointsPaid,jdbcType=VARCHAR},
+      points_reward = #{pointsReward,jdbcType=VARCHAR},
+      growth_points_reward = #{growthPointsReward,jdbcType=VARCHAR},
+      pay_channel = #{payChannel,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      cashier = #{cashier,jdbcType=INTEGER},
+      real_contact_id = #{realContactId,jdbcType=INTEGER},
+      member_id = #{memberId,jdbcType=INTEGER},
+      order_channel = #{orderChannel,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      is_point_used = #{isPointUsed,jdbcType=BIT},
+      tb_member_name = #{tbMemberName,jdbcType=VARCHAR},
+      tb_zfb_account = #{tbZfbAccount,jdbcType=VARCHAR},
+      payable_shipping_price = #{payableShippingPrice,jdbcType=VARCHAR},
+      contact_message = #{contactMessage,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      ship_method = #{shipMethod,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      tb_goods_name = #{tbGoodsName,jdbcType=VARCHAR},
+      tb_goods_type = #{tbGoodsType,jdbcType=VARCHAR},
+      express_number = #{expressNumber,jdbcType=VARCHAR},
+      express_company = #{expressCompany,jdbcType=VARCHAR},
+      tb_shop_id = #{tbShopId,jdbcType=VARCHAR},
+      tb_shop_name = #{tbShopName,jdbcType=VARCHAR},
+      tb_confirm_receive_time = #{tbConfirmReceiveTime,jdbcType=TIMESTAMP},
+      tb_to_merchant_money = #{tbToMerchantMoney,jdbcType=VARCHAR},
+      tb_points_paid = #{tbPointsPaid,jdbcType=VARCHAR},
+      tb_order_status = #{tbOrderStatus,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=INTEGER},
+      ls_plus_order_num = #{lsPlusOrderNum,jdbcType=VARCHAR},
+      jst_order_num = #{jstOrderNum,jdbcType=VARCHAR},
+      trade_biz_type = #{tradeBizType,jdbcType=VARCHAR},
+      guide_id = #{guideId,jdbcType=INTEGER},
+      takeout_platform = #{takeoutPlatform,jdbcType=VARCHAR},
+      tb_buyer_nick = #{tbBuyerNick,jdbcType=VARCHAR},
+      up_faccount_no = #{upFaccountNo,jdbcType=VARCHAR},
+      jd_pin = #{jdPin,jdbcType=VARCHAR},
+      tb_receiver_mobile = #{tbReceiverMobile,jdbcType=VARCHAR},
+      jd_telephone = #{jdTelephone,jdbcType=VARCHAR},
+      bu_id = #{buId,jdbcType=VARCHAR},
+      outer_trade_no = #{outerTradeNo,jdbcType=VARCHAR},
+      has_post_fee = #{hasPostFee,jdbcType=BIT},
+      receiver_zip = #{receiverZip,jdbcType=VARCHAR},
+      receiver_state = #{receiverState,jdbcType=VARCHAR},
+      receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{receiverDistrict,jdbcType=VARCHAR},
+      order_start_time = #{orderStartTime,jdbcType=DATE},
+      order_end_time = #{orderEndTime,jdbcType=DATE},
+      order_state_remark = #{orderStateRemark,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      county_id = #{countyId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
